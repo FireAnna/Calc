@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Дивись Українське</title>
+    <link rel="shortcut icon" type="image/png" href="./img/hands5894741280.jpg">
+    <link rel="stylesheet" href="./ctyle.css">
+        <style>
+
+            
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>   
+    <div class="box">
+        <img src="./img/cry-1682140.jpg" alt="" width="400" height="250">
+    </div>
+    <div class="container">
+        <div class="calculator">
+            <div class="calculator-row">
+                <label for="dateMond12">Дата:</label>
+                <input type="date" id="dateMond12" name="dateMond12">
+                <label for="hoursMond12">Години:</label>
+                <input type="number" id="hoursMond12" name="hoursMond12">
+                <label for="tariffPerHour">Тариф за годину:</label>
+                <input type="number" id="tariffPerHour" name="tariffPerHour">
+                <button class="calculate-button" onclick="calculateAndAddToTable()">Підрахувати прибуток</button>
+            </div>
+        </div>
+    </div>
+
+    <h2>Результати розрахунку:</h2>
+    <table id="resultTable">
+        <thead>
+            <tr>
+                <th>Дата</th>
+                <th>Години</th>
+                <th>Прибуток</th>
+                <th></th> <!-- Колонка для кнопки "Видалити" -->
+            </tr>
+        </thead>
+        <tbody id="resultBody">
+        </tbody>
+    </table>
+
+    <div id="result"></div>
+    <div><button onclick="exportToExcel()">Зберегти в Excel</button></div>
+<script src="./js.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+<script>
+    // Викликаємо функцію updateTable() після завантаження сторінки
+    window.onload = function() {
+        updateTable();
+    };
+</script>
+</body>
+</html>

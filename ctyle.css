@@ -1,0 +1,76 @@
+.box:before {
+    content: 'JavaScript';
+    font-size: 25px;
+    color: rgb(255, 47, 0);
+    padding-left: 10px;
+ 
+ width: 300px;
+ height: 40px;
+}
+.box{
+    display: flex;
+    
+}
+
+
+/* Стилі для калькулятора */
+.calculator {
+    background-color: #f9f9f9; /* Світлий сірий фон */
+    border: 2px solid #4CAF50; /* Зелений бордер */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Тінь */
+    padding: 20px;
+    margin-top: 20px;
+    max-width: 400px; /* Обмежуємо максимальну ширину калькулятора */
+    margin-left: auto; /* Центруємо по горизонталі */
+    margin-right: auto; /* Центруємо по горизонталі */
+}
+
+.calculator-row {
+    margin-bottom: 10px;
+}
+
+.calculator-row label {
+    margin-right: 10px;
+    font-weight: bold;
+    display: block; /* Відображаємо мітки по вертикалі */
+}
+
+.calculator-row input[type="date"],
+.calculator-row input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc; /* Сірий бордер для інпутів */
+    border-radius: 4px;
+    width: calc(100% - 22px); /* Розраховуємо ширину враховуючи внутрішні відступи */
+    margin-bottom: 10px; /* Збільшуємо відступ між полями вводу */
+}
+
+.calculate-button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Зелений фон кнопки */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: calc(100% - 22px); /* Розраховуємо ширину враховуючи внутрішні відступи */
+}
+
+.calculate-button:hover {
+    background-color: #45a049; /* Змінений колір при наведенні */
+}
+
+.calculate-button:active {
+    background-color: #3e8e41; /* Колір при натисканні */
+}
+
+/* Прозорий бордер для всіх останніх колонок, крім заголовка таблиці */
+#resultTable th:last-child,
+#resultTable td:last-child {
+    border: none; /* Встановлюємо прозорий бордер */
+}
+
+/* Прибираємо бордер для таблиці, де знаходяться кнопки */
+#resultTable {
+    border: none;
+}
