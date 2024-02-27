@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Дивись Українське</title>
-    <link rel="shortcut icon" type="image/png" href="./img/hands5894741280.jpg">
+    <title>Калькулятор</title>
+    <link rel="shortcut icon" type="image/png" href="./img/calc.png">
     <link rel="stylesheet" href="./ctyle.css">
         <style>
 
-            
+     
         table {
             border-collapse: collapse;
             width: 100%;
@@ -20,9 +20,7 @@
     </style>
 </head>
 <body>   
-    <div class="box">
-        <img src="./img/cry-1682140.jpg" alt="" width="400" height="250">
-    </div>
+ 
     <div class="container">
         <div class="calculator">
             <div class="calculator-row">
@@ -36,7 +34,8 @@
             </div>
         </div>
     </div>
-
+    
+    <div id="character" style="width: 30px; height: 30px;"></div>
     <h2>Результати розрахунку:</h2>
     <table id="resultTable">
         <thead>
@@ -52,9 +51,50 @@
     </table>
 
     <div id="result"></div>
-    <div><button onclick="exportToExcel()">Зберегти в Excel</button></div>
+    
+    <button class="calculate-button export-button" onclick="exportToExcel()">Зберегти в Excel</button>
+ 
+
 <script src="./js.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script>
+    anime({
+        targets: '#character',
+        translateX: '-10%', // Початкове положення - зліва
+        
+        scale: 1, // Збільшення розміру в два рази
+        duration: 5000, // Тривалість анімації - 5 секунд
+        easing: 'linear', // Лінійне згладжування
+        complete: function() {
+            anime({
+                targets: '#character',
+                translateX: 'calc(50% - -150px)', // Переміщення вправо до краю екрану
+                translateY: 'calc(10% - 10px)', // Переміщення вниз до краю екрану
+                duration: 2000, // Тривалість анімації - 2 секунди
+                easing: 'linear', // Лінійне згладжування
+                complete: function() {
+                    anime({
+                        targets: '#character',
+                        translateX: 'calc(-100% + 550px)', // Переміщення вліво за межі вікна
+                        duration: 2000, // Тривалість анімації - 2 секунди
+                        easing: 'linear', // Лінійне згладжування
+                        complete: function() {
+                            document.getElementById('character').style.display = 'none'; // Приховати елемент
+                        }
+                    });
+                }
+            });
+        }
+    });
+</script>
+    <script>
+        // Викликаємо функцію updateTable() після завантаження сторінки
+        window.onload = function() {
+            updateTable();
+        };
+</script>
 
 <script>
     // Викликаємо функцію updateTable() після завантаження сторінки

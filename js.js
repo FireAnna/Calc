@@ -933,3 +933,24 @@ function exportToExcel() {
     // Збережіть робочу книгу у форматі Excel
     XLSX.writeFile(workbook, 'result.xlsx');
 }
+
+
+function animateCharacter() {
+    const character = document.getElementById('character');
+
+    // Визначте анімаційну послідовність для руху чоловічка
+    anime({
+        targets: character,
+        translateY: '100vh', // Рух вниз на висоту екрану
+        duration: 2000, // Тривалість анімації в мілісекундах (2000 мс = 2 секунди)
+        easing: 'easeInOutQuad', // Функція випробування для плавності анімації
+        complete: function() {
+            // Код, який виконується після завершення анімації
+            console.log('Анімація завершена');
+        }
+    });
+}
+
+window.onload = function() {
+    animateCharacter();
+};
